@@ -4,5 +4,5 @@ import org.openqa.selenium.WebDriver;
 
 public interface WebDriverManager {
     WebDriver getDriver();
-    void destroyDriver(WebDriver browser);
+    void destroyDriver(WebDriver driver);
 }

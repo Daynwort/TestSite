@@ -5,7 +5,6 @@ import infrastructure.TestServer;
 import infrastructure.logging.AbstractLogger;
 import infrastructure.logging.FileTestLogger;
 import infrastructure.logging.StdTestLogger;
-import infrastructure.utils.WaitUtils;
 import infrastructure.wdm.DefaultWebDriverManager;
 import infrastructure.wdm.WebDriverManager;
 import org.junit.After;
@@ -17,28 +16,19 @@ public class TestBase {
     private WebDriverManager wdm;
     protected AbstractLogger logger;
     protected WebDriver driver;
-    protected WaitUtils wait;
-    private TestServer server;
+    protected TestServer server;
 
     @Before
-    public void setup(){
+    public void beforeTest(){
         wdm = new DefaultWebDriverManager();
-        logger = getLogger();
         server = new TestServer();
-        String url = server.getUrl();
-        logger.log(url);
         driver = wdm.getDriver();
-        wait = new WaitUtils(driver);
-        beforeTest();
+        logger = getLogger();
     }
     @After
     public void teardown(){
         wdm.destroyDriver(driver);
         afterTest();
-    }
-
-    public void beforeTest(){
-
     }
 
     public AbstractLogger getLogger(){

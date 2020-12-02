@@ -6,7 +6,7 @@ public class TestServer {
         switch (env) {
             case "prod_env" : return  "https:\\prod.example.com.ua";
 
-            case "qa_env" : return "https:\\qa.example.com.ua";
+            case "qa_env" : return "http://rgtestsite.fast-page.org/wordpress/";
 
             case "some_env" : return "https:\\some.url";
             default:return "";

@@ -1,7 +1,8 @@
 package infrastructure.utils;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,8 +18,6 @@ public class WaitUtils {
     }
 
 
-
-
     public  void sleep(int seconds){
         try {
             Thread.sleep(seconds * 1000);
@@ -27,13 +26,13 @@ public class WaitUtils {
         }
     }
 
-    public void waitUntilDisplayed(By element){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    public void waitUntilDisplayed(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
-    public void waitUntilClickable(By element){
+    public void waitUntilClickable(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
-    public void waitUntilSelected(By element){
+    public void waitUntilSelected(WebElement element){
         wait.until(ExpectedConditions.elementToBeSelected(element));
     }
     public void waitUntilPageLoad(){
